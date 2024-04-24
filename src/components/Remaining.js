@@ -4,7 +4,7 @@ import Budget from '../components/Budget';
 
 const Remaining = () => {
    
-    const { expenses, budget } = useContext(AppContext);
+    const { expenses, budget,Currency } = useContext(AppContext);
     const [newBudget, setNewBudget] = useState(budget);
     const handleBudgetChange = (event) => {
         setNewBudget(event.target.value);
@@ -15,7 +15,7 @@ const Remaining = () => {
     const alertType = totalExpenses > newBudget ? 'alert-danger' : 'alert-success';
     return (
         <div className={'alert ${alertType}'} >
-            <span>Remaining: £{newBudget - totalExpenses}</span>
+            <span>Remaining: {Currency}{newBudget - totalExpenses}</span>
             
         </div>
     );
